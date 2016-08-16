@@ -1,0 +1,615 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Introducing redux-saga · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="We have a function which fetches a GIF but we said that Updater must be a Pure function with no side effects, on the other hand fetchGif function is effect">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../composition/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="2.3.1"
+    data-chapter-title="Introducing redux-saga"
+    data-filepath="gif-viewer/side-effects/redux-saga.md"
+    data-basepath="../.."
+    data-revision="Tue Aug 16 2016 16:52:16 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../shaping-model.html">
+            
+                <a href="../shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../rendering-view.html">
+            
+                <a href="../rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.3.1" data-path="redux-saga.html">
+            
+                <a href="redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../../composition/">
+            
+                <a href="../../composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../../composition/action-composition.html">
+            
+                <a href="../../composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../composition/example/">
+            
+                <a href="../../composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../composition/example/action-composition-practice.html">
+            
+                <a href="../../composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../composition/example/public-interface.html">
+            
+                <a href="../../composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../composition/dynamic-list/">
+            
+                <a href="../../composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../../custom-matchers/">
+            
+                <a href="../../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Introducing redux-saga</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="introducing-reduxsaga">Introducing <code>redux-saga</code></h2>
+<p>We have a function which fetches a GIF but we said that Updater must be a Pure function with no side effects, on the other hand <code>fetchGif</code> function is effectful since it calls an XHR request. Fortunately, <code>redux-elm</code> allows you to provide an Effect executor for every Updater and the Effect executor must be a Saga from <a href="https://github.com/yelouafi/redux-saga" target="_blank"><code>redux-saga</code> project</a>.</p>
+<h3 id="what-is-saga-and-why-you-need-it">What is Saga and why you need it?</h3>
+<p><a href="https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf" target="_blank">Saga is a pattern</a> which was originally meant to be used for orchestrating long lived transactions on the back-end. Imagine a web service which purpose is to settle a payment transaction, however this requires communication with external services and if any of the service call fails, the entire payment transactions fails too. Saga is responsible for orchestrating this transaction.</p>
+<p>What it has to do with front-end world? You might not be aware of the fact, but there are many long lived transactions on front-end, XHR call for instance. You could describe fetching GIF as following transaction</p>
+<ol>
+<li>When <code>FetchMore</code> action kicks in, initiate LLT (long lived transaction)</li>
+<li>Trigger an XHR, call our previously implemented <code>fetchAll</code></li>
+<li>Wait for response (Long Lived)</li>
+<li>Dispatch a new action which packs new GIF url in its payload</li>
+</ol>
+<p>So potentially anything that spans more than single state transition, where state transition means handling action and mutating model appropriately is a Long Lived Transaction. It doesn&apos;t necessarily need to involve any side effect, let&apos;s say that you want to display a message box Component on every fifth fetched GIF and hide it after 2 seconds, this is also LLT without any side effect.</p>
+<h3 id="how-does-it-look">How does it look?</h3>
+<p><code>redux-saga</code> has really <a href="http://yelouafi.github.io/redux-saga/docs/basics/UsingSagaHelpers.html" target="_blank">exceptional documentation</a> and you are highly encouraged to read it, but let&apos;s see how we can utilize it.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> init = topic =&gt; ({
+  topic,
+  gifUrl: <span class="hljs-literal">null</span>
+});
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;The saga has just been initialized&apos;</span>); <span class="hljs-comment">// it&apos;s ok to keep any impurity here</span>
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(init(<span class="hljs-string">&apos;funny cats&apos;</span>), saga)
+  .toReducer();
+</code></pre>
+<p>Saga is a generator function (<code>function*</code>) and can be passed to <code>Updater</code> as second argument. <code>redux-saga</code> provides complex interface for implementing variety of use cases. In this tutorial we will cover just basics.</p>
+<h3 id="implementing-saga">Implementing Saga</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { takeEvery } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga&apos;</span>;
+
+<span class="hljs-comment">// fetchSaga is a sub-saga</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fetchSaga</span>(<span class="hljs-params"></span>) </span>{
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// takeEvery helper starts sub-saga on every incoming RequestMore action</span>
+  <span class="hljs-comment">//</span>
+  <span class="hljs-comment">// yield* is necessary since yield* is a keyword used</span>
+  <span class="hljs-comment">// when nested generators are called and takeEvery helper is</span>
+  <span class="hljs-comment">// generator</span>
+  <span class="hljs-keyword">yield</span>* takeEvery(<span class="hljs-string">&apos;RequestMore&apos;</span>, fetchSaga);
+}
+</code></pre>
+<p>We can utilize <code>takeEvery</code> exposed by <code>redux-saga</code> generator to listen on incoming actions and react on them.</p>
+<p>Now let&apos;s execute the API call:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { takeEvery } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga&apos;</span>;
+<span class="hljs-keyword">import</span> { call, put, select } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> Effects <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./effects&apos;</span>;
+
+<span class="hljs-comment">// Get topic Selector</span>
+<span class="hljs-keyword">const</span> getTopic = model =&gt; model.topic;
+
+<span class="hljs-comment">// fetchSaga is a sub-saga</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fetchSaga</span>(<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-comment">// select effect will allow you to access the Model</span>
+  <span class="hljs-comment">// its only argument is selector - function which</span>
+  <span class="hljs-comment">// returns something from the Model</span>
+  <span class="hljs-keyword">const</span> topic = <span class="hljs-keyword">yield</span> select(getTopic);
+
+  <span class="hljs-comment">// call effect calls the appropriate function</span>
+  <span class="hljs-comment">// which is expected to return a Promise, it waits</span>
+  <span class="hljs-comment">// for response and returns it back to variable</span>
+  <span class="hljs-comment">//</span>
+  <span class="hljs-comment">// fetchGif is our previously implemented XHR call</span>
+  <span class="hljs-keyword">const</span> url = <span class="hljs-keyword">yield</span> call(Effects.fetchGif, topic);
+
+  <span class="hljs-comment">// last effect is put, which feeds new action back</span>
+  <span class="hljs-comment">// to the application, url of the gif is provided</span>
+  <span class="hljs-comment">// in the action payload</span>
+  <span class="hljs-keyword">yield</span> put({ type: <span class="hljs-string">&apos;NewGif&apos;</span>, url });
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">yield</span>* takeEvery(<span class="hljs-string">&apos;RequestMore&apos;</span>, fetchSaga);
+}
+</code></pre>
+<p>So this is an example implementation of XHR call. We used three effects exposed by <code>redux-saga</code>:</p>
+<ol>
+<li><code>select</code> - selects data from Model</li>
+<li><code>call</code> - executes promise and waits for the result</li>
+<li><code>put</code> - dispatches new action</li>
+</ol>
+<h3 id="implementing-updater">Implementing Updater</h3>
+<p>Now that we have our Saga ready, we can implement Model mutations.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+<span class="hljs-keyword">import</span> { takeEvery } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga&apos;</span>;
+<span class="hljs-keyword">import</span> { call, put, select } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
+
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> Effects <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./effects&apos;</span>;
+
+<span class="hljs-keyword">const</span> getTopic = model =&gt; model.topic;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fetchGif</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> topic = <span class="hljs-keyword">yield</span> select(getTopic);
+  <span class="hljs-keyword">const</span> url = <span class="hljs-keyword">yield</span> call(Effects.fetchGif, topic);
+  <span class="hljs-keyword">yield</span> put({ type: <span class="hljs-string">&apos;NewGif&apos;</span>, url });
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">yield</span>* takeEvery(<span class="hljs-string">&apos;RequestMore&apos;</span>, fetchGif);
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> init = topic =&gt; ({
+  topic,
+  gifUrl: <span class="hljs-literal">null</span>
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(init(<span class="hljs-string">&apos;funny cats&apos;</span>), saga)
+  .case(<span class="hljs-string">&apos;NewGif&apos;</span>, (model, { url }) =&gt; ({ ...model, gifUrl: url }))
+  .case(<span class="hljs-string">&apos;RequestMore&apos;</span>, model =&gt; ({ ...model, gifUrl: <span class="hljs-literal">null</span> }))
+  .toReducer();
+</code></pre>
+<p>Updater implementation is fairly simple, we just need to pass the Saga as second argument to Updater constructor and handle two actions</p>
+<ol>
+<li><code>NewGif</code> - sets the URL from the action as <code>gifUrl</code> in the Model</li>
+<li><code>RequestMore</code> - sets <code>gifUrl</code> in the Model to <code>null</code></li>
+</ol>
+<p>There&apos;s one more tiny detail though, when you try to run the application now, you will see loading spinner and nothing ever loads, after you click the Load More it will fetch and display the GIF. Ideally we want to fetch a GIF right after the Component is initialized.</p>
+<p>It&apos;s fairly simple, you just need to call <code>fetchGif</code> saga as the first function in your main <code>saga</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">yield</span>* fetchGif();
+  <span class="hljs-keyword">yield</span>* takeEvery(<span class="hljs-string">&apos;RequestMore&apos;</span>, fetchGif);
+}
+</code></pre>
+<p>So before it starts listening to <code>RequestMore</code> actions, it will fetch new GIF. You should see the result now:</p>
+<p><img src="../../assets/6.png" alt="gif-viewer-2"></p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: AJAX &amp; Side Effects in practice">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../composition/" class="navigation navigation-next " aria-label="Next page: Composition">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Custom Matchers · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="You are already familiar with the built-in Matcher that redux-elm provides, which is parameterizedMatcher">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="writing-custom-matcher.html" />
+    
+    
+    <link rel="prev" href="../composition/dynamic-list/updater-parameterized-matcher.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="4"
+    data-chapter-title="Custom Matchers"
+    data-filepath="custom-matchers/README.md"
+    data-basepath=".."
+    data-revision="Tue Aug 16 2016 16:52:16 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../getting-started/necessary-boilerplate.html">
+            
+                <a href="../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting-started/hello-world.html">
+            
+                <a href="../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../gif-viewer/">
+            
+                <a href="../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../gif-viewer/shaping-model.html">
+            
+                <a href="../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gif-viewer/rendering-view.html">
+            
+                <a href="../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../gif-viewer/side-effects/">
+            
+                <a href="../gif-viewer/side-effects/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../gif-viewer/side-effects/redux-saga.html">
+            
+                <a href="../gif-viewer/side-effects/redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../composition/">
+            
+                <a href="../composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../composition/action-composition.html">
+            
+                <a href="../composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../composition/example/">
+            
+                <a href="../composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../composition/example/action-composition-practice.html">
+            
+                <a href="../composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../composition/example/public-interface.html">
+            
+                <a href="../composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../composition/dynamic-list/">
+            
+                <a href="../composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="writing-custom-matcher.html">
+            
+                <a href="writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Custom Matchers</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="custom-matchers">Custom Matchers</h2>
+<p>You are already familiar with the built-in Matcher that <code>redux-elm</code> provides, which is <code>parameterizedMatcher</code></p>
+<p>In most cases these will be all you need, but sometimes you might have a very specific use case that would be difficult to implement with them. Imagine you have a <code>Counter</code> Component that counts how many times a button was clicked and displays it on the screen:</p>
+<p><img src="../assets/14.png" alt="custom-matchers-1"></p>
+<p>The implementation is fairly straightforward:</p>
+<h3 id="counter-updater"><code>Counter</code> Updater</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> initialModel = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;Increment&apos;</span>, model =&gt; model + <span class="hljs-number">1</span>)
+  .toReducer();
+</code></pre>
+<h3 id="counter-view"><code>Counter</code> View</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { view } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> dispatch({ type: &apos;Increment&apos; })}&gt;Clicked {model} times<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+));
+</code></pre>
+<p>Now let&apos;s imagine we want to implement a Pair of <code>Counters</code>. We&apos;ll use what we know about <a href="../composition/">Composition</a> and build a <code>CountersPair</code>:</p>
+<h3 id="counterspair-updater"><code>CountersPair</code> Updater</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> counterUpdater, { initialModel <span class="hljs-keyword">as</span> counterInitialModel } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counter/updater&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> initialModel = {
+  top: counterInitialModel,
+  bottom: counterInitialModel
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;Top&apos;</span>, (model, action) =&gt; ({ ...model, top: counterUpdater(model.top, action) }))
+  .case(<span class="hljs-string">&apos;Bottom&apos;</span>, (model, action) =&gt; ({ ...model, bottom: counterUpdater(model.bottom, action) }))
+  .toReducer();
+</code></pre>
+<h3 id="counterspair-view"><code>CountersPair</code> View</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { view, forwardTo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> Counter <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counter/view&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  &lt;div&gt;
+    Top: &lt;Counter model={model.top} dispatch={forwardTo(dispatch, &apos;Top&apos;)} /&gt;
+    &lt;br /&gt;
+    Bottom: &lt;Counter model={model.bottom} dispatch={forwardTo(dispatch, &apos;Bottom&apos;)} /&gt;
+  &lt;/div&gt;
+));
+</code></pre>
+<p><img src="../assets/15.png" alt="custom-matchers-2"></p>
+<h3 id="realworld-use-case">Real-World Use Case</h3>
+<p>So now we have <code>Counter</code> and <code>CountersPair</code> implemented as independent Components. How might they be used in a real-world application? Let&apos;s imagine that the app will display <code>Counter</code> and <code>CountersPair</code> and then sum the clicks made on any of the buttons using a global counter.</p>
+<p><img src="../assets/16.png" alt="custom-matchers-3"></p>
+<h4 id="the-updater">The Updater</h4>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> counterUpdater, { initialModel <span class="hljs-keyword">as</span> counterInitialModel } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counter/updater&apos;</span>;
+<span class="hljs-keyword">import</span> countersPairUpdater, { initialModel <span class="hljs-keyword">as</span> countersPairInitialModel } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counters-pair/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  counter: counterInitialModel,
+  countersPair: countersPairInitialModel,
+  globalCounter: <span class="hljs-number">0</span>
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;Counter&apos;</span>, (model, action) =&gt; ({ ...model, counter: counterUpdater(model.counter, action) }))
+  .case(<span class="hljs-string">&apos;CountersPair&apos;</span>, (model, action) =&gt; ({ ...model, countersPair: countersPairUpdater(model.countersPair, action) }))
+  .toReducer();
+</code></pre>
+<h4 id="the-view-with-apologies-to-whoopi-goldberg">The View (with Apologies to Whoopi Goldberg)</h4>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { view, forwardTo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> Counter <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counter/view&apos;</span>;
+<span class="hljs-keyword">import</span> CountersPair <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../counters-pair/view&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  &lt;div&gt;
+    &lt;Counter model={model.counter} dispatch={forwardTo(dispatch, &apos;Counter&apos;)} /&gt;
+    &lt;CountersPair model={model.countersPair} dispatch={forwardTo(dispatch, &apos;CountersPair&apos;)} /&gt;
+    &lt;br /&gt;
+    Global Counter: {model.globalCounter}
+  &lt;/div&gt;
+));
+</code></pre>
+<p>Clicking on any <code>Counter</code> increments its value, but the global counter remains unchanged. That&apos;s because we didn&apos;t define the <code>globalCounter</code> mutation. Now is the right time to introduce a Custom Matcher implementation because we would like our Root Component to handle all <code>Increment</code> Actions regardless of how they are nested, as long as the type ends with an <code>Increment</code> segment.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../composition/dynamic-list/updater-parameterized-matcher.html" class="navigation navigation-prev " aria-label="Previous page: Updater with ParmeterizedMatcher">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="writing-custom-matcher.html" class="navigation navigation-next " aria-label="Next page: Writing Custom Matcher">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../gitbook/app.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

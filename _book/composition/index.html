@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Composition · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="If Redux is missing something out of the box, it&#39;s some kind of Encapsulation. And Composition is the new Encapsulation in functional programming lingo. Re">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="action-composition.html" />
+    
+    
+    <link rel="prev" href="../gif-viewer/side-effects/redux-saga.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="3"
+    data-chapter-title="Composition"
+    data-filepath="composition/README.md"
+    data-basepath=".."
+    data-revision="Tue Aug 09 2016 14:02:20 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../getting-started/necessary-boilerplate.html">
+            
+                <a href="../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting-started/hello-world.html">
+            
+                <a href="../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../gif-viewer/">
+            
+                <a href="../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../gif-viewer/shaping-model.html">
+            
+                <a href="../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gif-viewer/rendering-view.html">
+            
+                <a href="../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../gif-viewer/side-effects/">
+            
+                <a href="../gif-viewer/side-effects/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../gif-viewer/side-effects/redux-saga.html">
+            
+                <a href="../gif-viewer/side-effects/redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="action-composition.html">
+            
+                <a href="action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="example/">
+            
+                <a href="example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="example/action-composition-practice.html">
+            
+                <a href="example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="example/public-interface.html">
+            
+                <a href="example/public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="dynamic-list/">
+            
+                <a href="dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../custom-matchers/">
+            
+                <a href="../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Composition</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="composition">Composition</h2>
+<p>If Redux is missing something out of the box, it&apos;s some kind of Encapsulation. And <strong>Composition is the new Encapsulation in functional programming lingo</strong>. Redux gives programmers huge power by maintaining the entire application state in one place. However, not everyone accepts the great responsibility that comes with this great power, which can gradually lead to tightly coupled Components and a hard-to-maintain code base. <code>redux-elm</code> defines strict boundaries between components and does not allow us to break them. Decoupling is one of the principal benefits of <code>redux-elm</code>.</p>
+<p><strong>Composition is an essential concept of the Elm Architecture</strong>, and it&apos;s what makes <code>redux-elm</code> different from plain old Redux. Traditionally you can compose views in React simply by nesting them. This top-down approach means that the parent Component is aware of the public interface of its direct children, whereas children do not know anything about their parent besides the public interface defined using callbacks in <code>props</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+
+  onTextFieldValueChanged(value) {
+    <span class="hljs-keyword">this</span>.setState({
+      textFieldValue: value
+    });
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;ChildView textFieldValue={this.state.textFieldValue} onTextFieldChanged={::this.onTextFieldValueChanged} /&gt;
+    );
+  }
+}
+
+const ChildView = ({ onTextFieldChanged, textFieldValue }) =&gt; ({
+  &lt;input type=&quot;text&quot; onChange={onTextFieldChanged} value={textFieldValue} /&gt;
+});
+</code></pre>
+<p><code>ParentView</code> takes the role of managing all the state and communicates with <code>ChildView</code> using the <code>onTextFieldChanged</code> callback passed via <code>props</code>. This approach has one significiant drawback, however: <code>ParentView</code> must be aware of the internal details of <code>ChildView</code>, because it must know that it has a property called <code>textFieldValue</code>. The Elm Architecture therefore has the concept of a Model, where Model is an object that encapsulates the state of the Component. So instead of passing all the values via <code>props</code> (and thereby breaking encapsulation), we pass just the Model (which hides everything in its structure).</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> RootView = ({ model, dispatch }) =&gt; (
+  &lt;ParentView model={model.parentViewModel} dispatch={dispatch} /&gt;
+);
+
+const ParentView = ({ model, dispatch }) =&gt; (
+  &lt;ChildView model={model.childViewModel} onTextFieldChanged={() =&gt; dispatch({ type: &apos;ParentSpecificAction&apos; })} /&gt;
+);
+
+const ChildView = ({ model, onTextFieldChanged }) =&gt; (
+  &lt;input type=&quot;text&quot; onChange={onTextFieldChanged} value={model.value} /&gt;
+);
+</code></pre>
+<p>Now the parent only knows that it has a child and that the child has its own Model. The Parent does not need to know anything about the implementation details of the child. The Model Composition is straightforward:</p>
+<pre><code class="lang-javascript">{
+  parentViewModel: {
+    childViewModel: {
+      value: <span class="hljs-string">&apos;Text Field Value&apos;</span>
+    }
+  }
+}
+</code></pre>
+<p>It is common to compose Application State (Model) and Views in Redux, so what is actually the main (and probably only) difference between Redux and The Elm Architecture?</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../gif-viewer/side-effects/redux-saga.html" class="navigation navigation-prev " aria-label="Previous page: Introducing redux-saga">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="action-composition.html" class="navigation navigation-next " aria-label="Next page: Action Composition">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../gitbook/app.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"livereload":{}});
+    });
+    </script>
+
+    </body>
+</html>

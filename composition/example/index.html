@@ -1,0 +1,536 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Real Composition Example · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="We said that the Elm Architecture is about Composition and Encapsulation. Now let&#39;s have a closer look at how this works in practice.">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="action-composition-practice.html" />
+    
+    
+    <link rel="prev" href="../action-composition.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="3.2"
+    data-chapter-title="Real Composition Example"
+    data-filepath="composition/example/README.md"
+    data-basepath="../.."
+    data-revision="Tue Aug 16 2016 16:52:16 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../../gif-viewer/">
+            
+                <a href="../../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../../gif-viewer/shaping-model.html">
+            
+                <a href="../../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../gif-viewer/rendering-view.html">
+            
+                <a href="../../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../gif-viewer/side-effects/">
+            
+                <a href="../../gif-viewer/side-effects/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../gif-viewer/side-effects/redux-saga.html">
+            
+                <a href="../../gif-viewer/side-effects/redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../action-composition.html">
+            
+                <a href="../action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="action-composition-practice.html">
+            
+                <a href="action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="public-interface.html">
+            
+                <a href="public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../dynamic-list/">
+            
+                <a href="../dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../../custom-matchers/">
+            
+                <a href="../../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Real Composition Example</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="real-composition-example">Real Composition Example</h2>
+<p>We said that the Elm Architecture is about Composition and Encapsulation. Now let&apos;s have a closer look at how this works in practice.</p>
+<p>So far the code we have seen looked very similiar to traditional Redux, except that we are using Sagas to deal with Side Effects. Imagine we have two programmers, one responsible for implementing the <code>GifViewer</code> Component and the other for a Component which shows a pair of <code>GifViewers</code> (let&apos;s call it <code>GifViewerPair</code>). <code>GifViewerPair</code> should be able to request fetching for both <code>GifViewers</code> at once. We&apos;d like to use our colleague&apos;s implementation of <code>GifViewer</code> with the following interface:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> gifViewerUpdater, {
+  init,
+  requestMore
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">import</span> GifViewer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/view&apos;</span>;
+</code></pre>
+<p><code>GifViewer</code> already contains <code>updater</code> and <code>init</code>. What it does not contain is <code>requestMore</code>, so we need to implement and expose it in <code>gif-viewer/updater.js</code>. Requesting new GIF is fundamentally just a matter of dispatching <code>RequestMore</code> action, so we just need to expose it. Add following line in <code>./gif-viewer/updater.js</code> file.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> requestMore = () =&gt; ({ type: <span class="hljs-string">&apos;RequestMore&apos;</span> });
+</code></pre>
+<p><code>GifViewer</code> is now encapsulated and ready to be used by the <code>GifViewerPair</code> Component. Let&apos;s create a new folder in <code>redux-elm-skeleton</code> called <code>gif-viewer-pair</code> with two files, <code>updater.js</code> and <code>view.js</code>. Don&apos;t forget to change <code>main.js</code> to load the <code>GifViewerPair</code> as the Root Component.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> run <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./boilerplate&apos;</span>;
+
+<span class="hljs-keyword">import</span> view <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./gif-viewer-pair/view&apos;</span>;
+<span class="hljs-keyword">import</span> updater <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./gif-viewer-pair/updater&apos;</span>;
+
+run(<span class="hljs-string">&apos;app&apos;</span>, view, updater);
+</code></pre>
+<p>Here comes the Composition part again. Defining the initial Model for the Updater.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+<span class="hljs-keyword">import</span> { init } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  top: init(<span class="hljs-string">&apos;funny cats&apos;</span>),
+  bottom: init(<span class="hljs-string">&apos;funny dogs&apos;</span>)
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel).toReducer();
+</code></pre>
+<p>As its name suggests, <code>GifViewerPair</code> embeds two <code>GifViewers</code>: top and bottom. We mentioned that the parent Component was responsible for holding child Models, therefore the Model consist only of two fields, <code>top</code> and <code>bottom</code>, each holding a <code>GifViewer</code> initial model which we effectively created using <code>init</code> function.</p>
+<p>What about the View? It looks like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { view } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> GifViewer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/view&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  &lt;div&gt;
+    &lt;GifViewer model={model.top} dispatch={dispatch} /&gt;
+    &lt;GifViewer model={model.bottom} dispatch={dispatch} /&gt;
+    &lt;br /&gt;
+    &lt;button onClick={() =&gt; dispatch({ type: &apos;Load&apos; })}&gt;Load Both!&lt;/button&gt;
+  &lt;/div&gt;
+));
+</code></pre>
+<p>Again, nothing but Composition. Just render two <code>GifViewers</code> and provide the corresponding Model instance. The top <code>GifViewer</code> gets <code>model.top</code> and the Bottom gets <code>model.bottom</code>. We also provide a <code>dispatch</code> property. When you are nesting Views, you <strong>always need to pass two props: the Model and the dispatch function</strong>.</p>
+<p>You should be able to run the application now and see two <code>GifViewers</code>, but a lot of functionality is still missing.</p>
+<p><img src="../../assets/7.png" alt="gif-viewer-pair-1"></p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../action-composition.html" class="navigation navigation-prev " aria-label="Previous page: Action Composition">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="action-composition-practice.html" class="navigation navigation-next " aria-label="Next page: Action Composition in practice">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

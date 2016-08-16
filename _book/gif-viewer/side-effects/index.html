@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>AJAX &amp; Side Effects in practice · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="You have probably realized that Updater is basically a function which somehow mutates a Model based on User interaction, while View projects the Model onto">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="redux-saga.html" />
+    
+    
+    <link rel="prev" href="../rendering-view.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="2.3"
+    data-chapter-title="AJAX &amp; Side Effects in practice"
+    data-filepath="gif-viewer/side-effects/README.md"
+    data-basepath="../.."
+    data-revision="Tue Aug 09 2016 14:02:20 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../shaping-model.html">
+            
+                <a href="../shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../rendering-view.html">
+            
+                <a href="../rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="redux-saga.html">
+            
+                <a href="redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../../composition/">
+            
+                <a href="../../composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../../composition/action-composition.html">
+            
+                <a href="../../composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../composition/example/">
+            
+                <a href="../../composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../composition/example/action-composition-practice.html">
+            
+                <a href="../../composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../composition/example/public-interface.html">
+            
+                <a href="../../composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../composition/dynamic-list/">
+            
+                <a href="../../composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../../custom-matchers/">
+            
+                <a href="../../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >AJAX &amp; Side Effects in practice</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="ajax--side-effects-in-practice">AJAX &amp; Side Effects in Practice</h2>
+<p>You have probably realized that Updater is basically a function which somehow mutates a Model based on User interaction, while View projects the Model onto screen. Important condition is that Updater must not yield any side effect. In other words, <strong>Updater is just a pure function which responsibility is only returning new reference to mutated model</strong>, the function must be synchronous and can&apos;t modify anything outside the function scope. You can call the function more than once, guaranteeing that given the same input, the same output is always produced and nothing outside the function is touched. Let&apos;s take function <code>sin</code> for instance:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.sin(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.sin(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2</span>));
+
+Console:
+<span class="hljs-number">1</span>
+<span class="hljs-number">1</span>
+</code></pre>
+<p>You can be sure that the <code>value</code> will always be 1 no matter how many times you call the function. However let&apos;s consider impure function:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> impureSin = (value) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;impurity&apos;</span>);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sin(value);
+}
+
+<span class="hljs-built_in">console</span>.log(impureSin(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2</span>));
+<span class="hljs-built_in">console</span>.log(impureSin(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2</span>));
+
+Console:
+<span class="hljs-number">1</span>
+impurity
+<span class="hljs-number">1</span>
+impurity
+</code></pre>
+<p>As you can see, calling actual <code>Math.sin</code> function does not change state of the application, however calling <code>impureSin</code> changes the state of the application since it logs word &quot;impurity&quot;.</p>
+<p>Consider more realistic example:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> incrementUpdater = model =&gt; {
+  $.ajax(<span class="hljs-string">&apos;/increment&apos;</span>);
+
+  <span class="hljs-keyword">return</span> model + <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>Calling an XHR in Updater is an impure operation and you should never do so. Updater is called always when UI dispatches an action, however in modern UI development we want to have features like Hot reloading or time travel and this would not be possible if our Updaters weren&apos;t pure since technically hot reloading means that application keeps track of all the dispatched actions and once code changes all the actions get re-applied onto new hot-reloaded implementation of Updaters. However, in our particular case this would mean that number of increments on the server would not correspond with number on the client.</p>
+<p>An application without side effects would be useless, because you wouldn&apos;t have a chance to load data from API, trigger some asynchronous actions or for example log something into the console.</p>
+<h3 id="fetching-gif">Fetching GIF</h3>
+<p>This is exactly our case in GifViewer applicaton, as you can see, there&apos;s not much going on now. We can just see the loading spinner, and nothing happens when the button is clicked.</p>
+<p>First of all, we need to define the Side Effect that triggers the API call. Let&apos;s create a new file within the <code>gif-viewer</code> directory and call it <code>effects.js</code>. This file will contain a single function called <code>fetchGif</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;isomorphic-fetch&apos;</span>);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fetchGif = topic =&gt; fetch(<span class="hljs-string">`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=<span class="hljs-subst">${topic}</span>`</span>)
+  .then(response =&gt; {
+    <span class="hljs-keyword">if</span> (response.status &gt; <span class="hljs-number">400</span>) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;Error while fetching from the server&apos;</span>);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> response.json();
+    }
+  })
+  .then(body =&gt; body.data.image_url);
+</code></pre>
+<p>We will be using <code>isomorphic-fetch</code> for XHR request, which needs to be installed by running the following command:</p>
+<pre><code>npm install --save isomorphic-fetch
+</code></pre><p>Our <code>fetchGif</code> function takes <code>topic</code> as argument. Inside the function we just need to trigger the XHR request and return Promise which resolves with response, in our case it means new GIF url.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../rendering-view.html" class="navigation navigation-prev " aria-label="Previous page: Rendering View">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="redux-saga.html" class="navigation navigation-next " aria-label="Next page: Introducing redux-saga">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"livereload":{}});
+    });
+    </script>
+
+    </body>
+</html>

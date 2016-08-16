@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Updater with ParmeterizedMatcher · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="All Actions relating to a specific instance of GifViewer must be prepended with GifViewer following by the index of the Component in the list. Unfortunatel">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../custom-matchers/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="3.3.1"
+    data-chapter-title="Updater with ParmeterizedMatcher"
+    data-filepath="composition/dynamic-list/updater-parameterized-matcher.md"
+    data-basepath="../.."
+    data-revision="Tue Aug 16 2016 16:52:16 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../../gif-viewer/">
+            
+                <a href="../../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../../gif-viewer/shaping-model.html">
+            
+                <a href="../../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../gif-viewer/rendering-view.html">
+            
+                <a href="../../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../gif-viewer/side-effects/">
+            
+                <a href="../../gif-viewer/side-effects/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../gif-viewer/side-effects/redux-saga.html">
+            
+                <a href="../../gif-viewer/side-effects/redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../action-composition.html">
+            
+                <a href="../action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../example/">
+            
+                <a href="../example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../example/action-composition-practice.html">
+            
+                <a href="../example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../example/public-interface.html">
+            
+                <a href="../example/public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.3.1" data-path="updater-parameterized-matcher.html">
+            
+                <a href="updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../../custom-matchers/">
+            
+                <a href="../../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Updater with ParmeterizedMatcher</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="updater-with-parameterizedmatcher">Updater with <code>parameterizedMatcher</code></h2>
+<p>All Actions relating to a specific instance of <code>GifViewer</code> must be prepended with <code>GifViewer</code> following by the index of the Component in the list. Unfortunately this is a specific action unwrapping logic which can&apos;t be automatically handled by <code>redux-elm</code>, however <code>redux-elm</code> allows user to override default unwrapping behaviour by providing something called Matcher.</p>
+<p>Default Matcher implementation is looking either for:</p>
+<ul>
+<li>exact match in action type with provided pattern: <code>Foo</code> unwraps to <code>Foo</code> or</li>
+<li>action type starting with provided pattern and rest is being unwrapped: <code>Foo.Bar</code> unwraps to <code>Bar</code></li>
+</ul>
+<p>However, <code>redux-elm</code> is shipped with <code>parameterizedMatcher</code> which serves exactly the purpose that we need. It unwraps the action by pattern and assumes parameter (index of GifViewer) in the Action composition chain. <code>GifViewer.3.NewGif</code> is unwrapped into action:</p>
+<pre><code class="lang-javascript">{
+  type: <span class="hljs-string">&apos;NewGif&apos;</span>,
+  matching: {
+    args: {
+      param: <span class="hljs-number">3</span>
+    }
+  }
+}
+</code></pre>
+<p>You can override default Matcher implementation by passing third argument to <code>case</code> function:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater, Matchers } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  topic: <span class="hljs-string">&apos;&apos;</span>,
+  gifViewers: []
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;GifViewer&apos;</span>, (model, action) =&gt; {
+    <span class="hljs-comment">// We assume that the action starts with `GifViewer` and is followed by `gifViewerIndex`</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// We need to parse action `param` because the matching is string-based</span>
+    <span class="hljs-comment">// and all arguments are passed in as strings</span>
+    <span class="hljs-keyword">const</span> numericGifViewerIndex = <span class="hljs-built_in">parseInt</span>(action.matching.args.param, <span class="hljs-number">10</span>);
+
+    <span class="hljs-keyword">return</span> model;
+  }, Matchers.parameterizedMatcher)
+  .toReducer();
+</code></pre>
+<p>The implementation should be pretty straightforward. We just want to find the Model corresponding to the Component and call <code>gifViewerUpdater</code> with the unwrapped Action to perform the mutation. Here is a simplified version:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater, Matchers } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> gifViewerUpdater <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  topic: <span class="hljs-string">&apos;&apos;</span>,
+  gifViewers: []
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;GifViewer&apos;</span>, (model, action) =&gt; {
+    <span class="hljs-keyword">const</span> numericGifViewerIndex = <span class="hljs-built_in">parseInt</span>(action.matching.args.param, <span class="hljs-number">10</span>);
+
+    <span class="hljs-keyword">return</span> {
+      ...model,
+      gifViewers: model.gifViewers.map((gifViewerModel, index) =&gt; {
+        <span class="hljs-keyword">if</span> (index === numericGifViewerIndex) {
+          <span class="hljs-keyword">return</span> gifViewerUpdater(gifViewerModel, action);
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-keyword">return</span> gifViewerModel;
+        }
+      })
+    };
+  }, Matchers.parameterizedMatcher)
+  .toReducer();
+</code></pre>
+<p>We want to map over all the GifViewer models and find the one with the appropriate index. If the index matches then we call the child Updater (<code>gifViewerUpdater</code>) providing the Model slice and unwrapped action (<code>NewGif</code> or <code>RequestMore</code>). If the index does not match, we just return the original reference.</p>
+<h3 id="finishing-dynamic-list-of-components-implementation">Finishing dynamic list of Components implementation</h3>
+<p>Good news: that was the hard part. Now comes the easy part. We just need to handle two more actions: <code>ChangeTopic</code> and <code>Create</code>, where <code>ChangeTopic</code> changes the <code>topic</code> property of the Model. So what should happen when the <code>Create</code> Action is dispatched? As its name suggests, the handler is responsible for creating a Model for a newly added <code>GifViewer</code>. So let&apos;s just append new model to list of <code>gifViewers</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater, Matchers } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> gifViewerUpdater, { init <span class="hljs-keyword">as</span> gifViewerInit } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  topic: <span class="hljs-string">&apos;&apos;</span>,
+  gifViewers: []
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel, saga)
+  .case(<span class="hljs-string">&apos;ChangeTopic&apos;</span>, (model, { value }) =&gt; ({ ...model, topic: value }))
+  .case(<span class="hljs-string">&apos;Create&apos;</span>, model =&gt; ({
+    ...model,
+    topic: <span class="hljs-string">&apos;&apos;</span>,
+    gifViewers: [...model.gifViewers, gifViewerInit(model.topic)]
+  }))
+  .case(<span class="hljs-string">&apos;GifViewer&apos;</span>, (model, action) =&gt; {
+    <span class="hljs-keyword">const</span> numericGifViewerIndex = <span class="hljs-built_in">parseInt</span>(action.matching.args.param, <span class="hljs-number">10</span>);
+
+    <span class="hljs-keyword">return</span> {
+      ...model,
+      gifViewers: model.gifViewers.map((gifViewerModel, index) =&gt; {
+        <span class="hljs-keyword">if</span> (index === numericGifViewerIndex) {
+          <span class="hljs-keyword">return</span> gifViewerUpdater(gifViewerModel, action);
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-keyword">return</span> gifViewerModel;
+        }
+      })
+    };
+  }, Matchers.parameterizedMatcher)
+  .toReducer();
+</code></pre>
+<p>Hurray! We&apos;ve implemented a fully functional list of <code>GifViewer</code>s:</p>
+<p><img src="../../assets/13.png" alt="gif-viewer-list-2"></p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Dynamic List of Components">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../custom-matchers/" class="navigation navigation-next " aria-label="Next page: Custom Matchers">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

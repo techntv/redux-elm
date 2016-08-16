@@ -1,0 +1,552 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Action Composition in practice · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The reason why nothing really works yet is that we haven&#39;t plugged in the GifViewer Updater yet. So we know how Action Composition works so how does it loo">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="public-interface.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="3.2.1"
+    data-chapter-title="Action Composition in practice"
+    data-filepath="composition/example/action-composition-practice.md"
+    data-basepath="../.."
+    data-revision="Tue Aug 16 2016 16:52:16 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../../gif-viewer/">
+            
+                <a href="../../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../../gif-viewer/shaping-model.html">
+            
+                <a href="../../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../gif-viewer/rendering-view.html">
+            
+                <a href="../../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../gif-viewer/side-effects/">
+            
+                <a href="../../gif-viewer/side-effects/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../gif-viewer/side-effects/redux-saga.html">
+            
+                <a href="../../gif-viewer/side-effects/redux-saga.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    Introducing redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../action-composition.html">
+            
+                <a href="../action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.2.1" data-path="action-composition-practice.html">
+            
+                <a href="action-composition-practice.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="public-interface.html">
+            
+                <a href="public-interface.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../dynamic-list/">
+            
+                <a href="../dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../../custom-matchers/">
+            
+                <a href="../../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Action Composition in practice</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="action-composition-in-practice">Action Composition in Practice</h2>
+<p>The reason why nothing really works yet is that we haven&apos;t plugged in the <code>GifViewer</code> Updater yet. So we know how Action Composition works so how does it look in <code>redux-elm</code>?</p>
+<h3 id="wrapping-action">Wrapping Action</h3>
+<p>Let&apos;s have a look at <code>GifViewerPair</code> View:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { view } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> GifViewer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/view&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  &lt;div&gt;
+    &lt;GifViewer model={model.top} dispatch={dispatch} /&gt;
+    &lt;GifViewer model={model.bottom} dispatch={dispatch} /&gt;
+    &lt;br /&gt;
+    &lt;button onClick={() =&gt; dispatch({ type: &apos;Load&apos; })}&gt;Load Both!&lt;/button&gt;
+  &lt;/div&gt;
+));
+</code></pre>
+<p>The idea is simple, any nested Component should get modified version of dispatch which tags all the outgoing actions. <code>redux-elm</code> provides function <code>forwardTo</code> which takes original dispatch as first argument and all the other arguments defines composition chain.</p>
+<p>Therefore calling <code>dispatch({ type: &apos;Foo&apos; })</code> will dispatch <code>Foo</code> but using <code>forwardTo</code> allows us to do something like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { view, forwardTo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; {
+  <span class="hljs-keyword">const</span> wrappedDispatch = forwardTo(dispatch, <span class="hljs-string">&apos;ActionPrefix&apos;</span>);
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> wrappedDispatch({ type: &apos;Foo&apos; })}&gt;Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+});
+</code></pre>
+<p>After clicking the <code>Button</code> action with type <code>ActionPrefix.Foo</code> is dispatched, we can utilize this and tag all the outgoing actions in nested components by <code>Top</code> or <code>Bottom</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { forwardTo, view } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> GifViewer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/view&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> view(({ model, dispatch }) =&gt; (
+  &lt;div&gt;
+    &lt;GifViewer model={model.top} dispatch={forwardTo(dispatch, &apos;Top&apos;)} /&gt;
+    &lt;GifViewer model={model.bottom} dispatch={forwardTo(dispatch, &apos;Bottom&apos;)} /&gt;
+    &lt;br /&gt;
+    &lt;button onClick={() =&gt; dispatch({ type: &apos;Load&apos; })}&gt;Load Both!&lt;/button&gt;
+  &lt;/div&gt;
+));
+</code></pre>
+<h3 id="unwrapping-action">Unwrapping Action</h3>
+<p>Now, any action dispatched within nested component will be automatically tagged, we call this concept action wrapping. But when you wrap something, you also need to be able to unwrap it and that&apos;s what <code>redux-elm</code> is doing automatically for you when handling Action in Updater.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> gifViewerUpdater, { init <span class="hljs-keyword">as</span> gifViewerInit } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialModel = {
+  top: gifViewerInit(<span class="hljs-string">&apos;funny cats&apos;</span>),
+  bottom: gifViewerInit(<span class="hljs-string">&apos;funny dogs&apos;</span>)
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(initialModel)
+  .case(<span class="hljs-string">&apos;Top&apos;</span>, (model, action) =&gt;
+    ({ ...model, top: gifViewerUpdater(model.top, action) }))
+  .case(<span class="hljs-string">&apos;Bottom&apos;</span>, (model, action, ...rest) =&gt;
+    ({ ...model, bottom: gifViewerUpdater(model.bottom, action) }))
+  .toReducer();
+</code></pre>
+<p><code>redux-elm</code> is smart enough to automatically determine if the Action needs to be unwrapped and unwraps it automatically, therefore any action tagged by <code>Top</code> or <code>Bottom</code> is automatically unwrapped and passed as argument to the function. For instance action <code>Top.NewGif</code> will jump into the <code>Top</code> handler and action argument will be of type <code>NewGif</code>, <code>GifViewer</code> Updater will get unwrapped action.</p>
+<p>This is a great Composition and Encapsulation example, <code>GifViewerPair</code> Updater knows that it holds two <code>GifViewer</code>s but it doesn&apos;t know anything about their internal implementation, what it does it just unwraps the action and passes it to corresponding Updater. </p>
+<p>Imagine our <code>GifViewerPair</code> Updater as a person who unwraps a package which may contain another package, and if so hands it over to another person (the <code>GifViewer</code> Updater) who is responsible for handling the contents of the package. Keep in mind that the package can be wrapped many times for many people (Component Updaters), with each one handing off to the person &quot;below&quot; them. The Composition part is the hierarchy while Encapsulation is nobody knowing the contents of the package which is not addressed directly to then.</p>
+<p>Let&apos;s compile and run the Application and see the result:</p>
+<p><img src="../../assets/10.png" alt="gif-viewer-pair-3"></p>
+<h3 id="what-about-sagas">What about Sagas?</h3>
+<p>Since Sagas are technically part of the Updater, you don&apos;t need to worry about wrapping or unwrapping Actions for Sagas, everything works automatically and framework takes care of it. Keep in mind that any Action going into Saga is automatically unwrapped and any outgoing action is automatically wrapped. Actions lives in local context of the Updater, same applies for <code>select</code> Effect in Saga, it will always get local slice of application state, which in <code>redux-elm</code> terms means Component&apos;s Model.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Real Composition Example">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="public-interface.html" class="navigation navigation-next " aria-label="Next page: Using public interface">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>
